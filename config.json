@@ -1,0 +1,13 @@
+{
+    "version": "1.1.0",
+    "name": "Sepay.name",
+    "description": "Sepay.description",
+    "authors": [
+        {
+            "name": "Harry Truong",
+            "url": "https://sepay.vn"
+        }
+    ],
+    "currencies": ["VND"],
+    "signup_url": "https://sepay.vn/"
+}

@@ -1,0 +1,20 @@
+<?php
+// Disable CSRF for external gateway post
+$this->Form->setCsrfOptions(['set_on_create' => false]);
+$this->Form->create(($post_to ?? null), ['id' => 'sepay_checkout_form']);
+if (!empty($fields)) {
+    foreach ($fields as $key => $value) {
+        $this->Form->fieldHidden($key, $value);
+    }
+}
+$this->Form->fieldSubmit('submit', $this->_('Sepay.buildprocess.submit', true), ['class' => 'btn btn-info']);
+$this->Form->end();
+?>
+<script type="text/javascript">
+(function () {
+    var form = document.getElementById('sepay_checkout_form');
+    if (form) {
+        form.submit();
+    }
+})();
+</script>
