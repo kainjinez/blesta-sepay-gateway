@@ -510,7 +510,7 @@ class Sepay extends NonmerchantGateway
     /**
      * Validate the SePay order prefix format.
      */
-    private function isValidOrderPrefix($prefix)
+    public function isValidOrderPrefix($prefix)
     {
         return (bool)preg_match('/^[A-Z]{1,10}$/', $this->normalizeOrderPrefix($prefix));
     }
