@@ -1,5 +1,7 @@
 # Blesta SePay Gateway
 
+![SePay logo](views/default/images/logo.png)
+
 SePay non-merchant hosted checkout gateway for Blesta.
 
 This package lets Blesta clients pay a single invoice in `VND` through SePay hosted checkout and QR payment flow, with IPN-based transaction confirmation and configurable order prefixes.
