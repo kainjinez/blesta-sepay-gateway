@@ -1,0 +1,91 @@
+<ul>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.mode', true), 'mode');
+        $this->Form->fieldSelect(
+            'mode',
+            ($modes ?? []),
+            ($meta['mode'] ?? 'sandbox'),
+            ['id' => 'mode']
+        );
+        ?>
+    </li>
+    <li>
+        <?php
+        echo '<strong>' . $this->_('Sepay.meta.section.sandbox', true) . '</strong>';
+        ?>
+    </li>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.sandbox_merchant', true), 'sandbox_merchant');
+        $this->Form->fieldText('sandbox_merchant', ($meta['sandbox_merchant'] ?? null), ['id' => 'sandbox_merchant']);
+        ?>
+    </li>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.sandbox_checkout_secret', true), 'sandbox_checkout_secret');
+        $this->Form->fieldText(
+            'sandbox_checkout_secret',
+            ($meta['sandbox_checkout_secret'] ?? null),
+            ['id' => 'sandbox_checkout_secret']
+        );
+        ?>
+    </li>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.sandbox_ipn_secret', true), 'sandbox_ipn_secret');
+        $this->Form->fieldText('sandbox_ipn_secret', ($meta['sandbox_ipn_secret'] ?? null), ['id' => 'sandbox_ipn_secret']);
+        ?>
+    </li>
+    <li>
+        <?php
+        echo '<strong>' . $this->_('Sepay.meta.section.live', true) . '</strong>';
+        ?>
+    </li>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.live_merchant', true), 'live_merchant');
+        $this->Form->fieldText('live_merchant', ($meta['live_merchant'] ?? null), ['id' => 'live_merchant']);
+        ?>
+    </li>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.live_checkout_secret', true), 'live_checkout_secret');
+        $this->Form->fieldText('live_checkout_secret', ($meta['live_checkout_secret'] ?? null), ['id' => 'live_checkout_secret']);
+        ?>
+    </li>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.live_ipn_secret', true), 'live_ipn_secret');
+        $this->Form->fieldText('live_ipn_secret', ($meta['live_ipn_secret'] ?? null), ['id' => 'live_ipn_secret']);
+        ?>
+    </li>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.payment_method', true), 'payment_method');
+        $this->Form->fieldSelect(
+            'payment_method',
+            ($payment_methods ?? []),
+            ($meta['payment_method'] ?? null),
+            ['id' => 'payment_method']
+        );
+        ?>
+    </li>
+    <li>
+        <?php
+        $this->Form->label($this->_('Sepay.meta.order_prefix', true), 'order_prefix');
+        $this->Form->fieldText('order_prefix', ($meta['order_prefix'] ?? 'BLS'), ['id' => 'order_prefix']);
+        ?>
+    </li>
+    <li>
+        <?php
+        echo sprintf(
+            $this->_('Sepay.meta.order_prefix.sync_note', true),
+            '<a href="https://my.sepay.vn/bankaccount" target="_blank" rel="noopener noreferrer">Tài khoản ngân hàng</a>'
+        );
+        ?>
+    </li>
+    <li>
+        <?php echo $this->_('Sepay.meta.note', true); ?>
+    </li>
+</ul>

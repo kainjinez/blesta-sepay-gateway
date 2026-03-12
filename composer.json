@@ -1,0 +1,15 @@
+{
+    "name": "blesta/sepay",
+    "description": "SePay hosted checkout gateway for Blesta (VND, single invoice, IPN confirmation).",
+    "license": "proprietary",
+    "type": "blesta-gateway-nonmerchant",
+    "require": {
+        "blesta/composer-installer": "~1.0"
+    },
+    "authors": [
+        {
+            "name": "Harry Truong",
+            "homepage": "https://sepay.vn"
+        }
+    ]
+}
