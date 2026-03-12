@@ -5,45 +5,46 @@
 
 // Basics
 $lang['Sepay.name'] = 'SePay';
-$lang['Sepay.description'] = 'Thanh toán chuyển khoản VND qua trang thanh toán và QR của SePay.';
+$lang['Sepay.description'] = 'Accept VND transfers via SePay hosted checkout and QR payment page.';
 
 // Errors
-$lang['Sepay.!error.sandbox_merchant.empty'] = 'Bắt buộc nhập Sandbox Merchant.';
-$lang['Sepay.!error.sandbox_checkout_secret.empty'] = 'Bắt buộc nhập Sandbox Checkout Secret.';
-$lang['Sepay.!error.sandbox_ipn_secret.empty'] = 'Bắt buộc nhập Sandbox IPN Secret.';
-$lang['Sepay.!error.live_merchant.empty'] = 'Bắt buộc nhập Live Merchant.';
-$lang['Sepay.!error.live_checkout_secret.empty'] = 'Bắt buộc nhập Live Checkout Secret.';
-$lang['Sepay.!error.live_ipn_secret.empty'] = 'Bắt buộc nhập Live IPN Secret.';
-$lang['Sepay.!error.mode.valid'] = 'Chế độ phải là Sandbox hoặc Live.';
-$lang['Sepay.!error.payment_method.valid'] = 'Phương thức thanh toán không hợp lệ.';
-$lang['Sepay.!error.order_prefix.valid'] = 'Tiền tố đơn hàng chỉ được gồm 1-10 chữ cái.';
-$lang['Sepay.!error.currency.valid'] = 'SePay chỉ hỗ trợ VND.';
-$lang['Sepay.!error.invoices.single'] = 'Cổng SePay chỉ hỗ trợ thanh toán từng hóa đơn một.';
-$lang['Sepay.!error.return_url.valid'] = 'Thiếu return URL.';
-$lang['Sepay.!error.amount.valid'] = 'Số tiền thanh toán không hợp lệ.';
-$lang['Sepay.!error.credentials.active'] = 'Thiếu thông tin xác thực của chế độ đang dùng.';
+$lang['Sepay.!error.sandbox_merchant.empty'] = 'Sandbox merchant is required.';
+$lang['Sepay.!error.sandbox_checkout_secret.empty'] = 'Sandbox checkout secret is required.';
+$lang['Sepay.!error.sandbox_ipn_secret.empty'] = 'Sandbox IPN secret is required.';
+$lang['Sepay.!error.live_merchant.empty'] = 'Live merchant is required.';
+$lang['Sepay.!error.live_checkout_secret.empty'] = 'Live checkout secret is required.';
+$lang['Sepay.!error.live_ipn_secret.empty'] = 'Live IPN secret is required.';
+$lang['Sepay.!error.mode.valid'] = 'Mode must be sandbox or live.';
+$lang['Sepay.!error.payment_method.valid'] = 'Invalid payment method.';
+$lang['Sepay.!error.order_prefix.valid'] = 'Order prefix must be 1-10 letters.';
+$lang['Sepay.!error.currency.valid'] = 'SePay supports VND only.';
+$lang['Sepay.!error.invoices.single'] = 'SePay gateway supports single invoice checkout only.';
+$lang['Sepay.!error.return_url.valid'] = 'Missing return URL.';
+$lang['Sepay.!error.amount.valid'] = 'Invalid payment amount.';
+$lang['Sepay.!error.credentials.active'] = 'Active mode credentials are missing.';
 
 // Settings
-$lang['Sepay.meta.mode'] = 'Chế độ';
+$lang['Sepay.meta.mode'] = 'Mode';
 $lang['Sepay.meta.mode.sandbox'] = 'Sandbox';
 $lang['Sepay.meta.mode.live'] = 'Live';
-$lang['Sepay.meta.section.sandbox'] = 'Thông tin Sandbox';
-$lang['Sepay.meta.section.live'] = 'Thông tin Live';
+$lang['Sepay.meta.section.sandbox'] = 'Sandbox Credentials';
+$lang['Sepay.meta.section.live'] = 'Live Credentials';
 $lang['Sepay.meta.sandbox_merchant'] = 'Sandbox Merchant';
 $lang['Sepay.meta.sandbox_checkout_secret'] = 'Sandbox Checkout Secret';
 $lang['Sepay.meta.sandbox_ipn_secret'] = 'Sandbox IPN Secret (X-Secret-Key)';
 $lang['Sepay.meta.live_merchant'] = 'Live Merchant';
 $lang['Sepay.meta.live_checkout_secret'] = 'Live Checkout Secret';
 $lang['Sepay.meta.live_ipn_secret'] = 'Live IPN Secret (X-Secret-Key)';
-$lang['Sepay.meta.payment_method'] = 'Phương thức thanh toán (Tùy chọn)';
-$lang['Sepay.meta.order_prefix'] = 'Tiền tố đơn hàng';
-$lang['Sepay.meta.order_prefix.sync_note'] = 'Hãy vào %1$s -> Cấu hình chung -> bật "Đồng bộ giao dịch" và "Đồng bộ giao dịch tiền vào". Đảm bảo mục "Đồng bộ giao dịch theo từ khoá" có một bản ghi khớp với Tiền tố đơn hàng.';
-$lang['Sepay.meta.payment_method.none'] = 'Mặc định SePay';
-$lang['Sepay.meta.payment_method.bank_transfer'] = 'Chuyển khoản ngân hàng';
-$lang['Sepay.meta.payment_method.napas_bank_transfer'] = 'Chuyển khoản Napas';
-$lang['Sepay.meta.payment_method.card'] = 'Thẻ';
+$lang['Sepay.meta.payment_method'] = 'Payment Method (Optional)';
+$lang['Sepay.meta.order_prefix'] = 'Order Prefix';
+$lang['Sepay.meta.bank_account_link_text'] = 'Bank Account';
+$lang['Sepay.meta.order_prefix.sync_note'] = 'Go to %1$s -> General Settings, turn on Sync Transaction and Incoming transaction sync, then make sure Synchronize transactions by keyword contains a record matching Order Prefix.';
+$lang['Sepay.meta.payment_method.none'] = 'SePay default';
+$lang['Sepay.meta.payment_method.bank_transfer'] = 'Bank Transfer';
+$lang['Sepay.meta.payment_method.napas_bank_transfer'] = 'Napas Bank Transfer';
+$lang['Sepay.meta.payment_method.card'] = 'Card';
 
-$lang['Sepay.meta.note'] = 'Đặt SePay IPN URL là: /callback/gw/{company_id}/sepay/. Tiền tố đơn hàng chỉ dùng chữ cái và mặc định là BLS.';
+$lang['Sepay.meta.note'] = 'Set SePay IPN URL to: /callback/gw/{company_id}/sepay/. Order Prefix uses letters only and defaults to BLS.';
 
 // Build process
-$lang['Sepay.buildprocess.submit'] = 'Thanh toán bằng SePay';
+$lang['Sepay.buildprocess.submit'] = 'Pay with SePay';

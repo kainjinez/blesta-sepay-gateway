@@ -11,11 +11,12 @@ This package lets Blesta clients pay a single invoice in `VND` through SePay hos
 - Single-invoice checkout
 - IPN callback validation
 - Configurable order prefix for SePay order IDs
+- English and Vietnamese language packs
 - Blesta transaction matching using the generated order reference
 
 ## Requirements
 
-- Blesta `5.13.x` or compatible custom build
+- Blesta `5.13.x` or a compatible custom build
 - PHP environment supported by your Blesta installation
 - A SePay merchant account
 - HTTPS for production callback and return URLs
@@ -26,14 +27,16 @@ This package lets Blesta clients pay a single invoice in `VND` through SePay hos
 sepay/
 ├── config.json
 ├── composer.json
-├── language/en_us/sepay.php
+├── language/
+│   ├── en_us/sepay.php
+│   └── vi_vn/sepay.php
 ├── sepay.php
 └── views/default/
 ```
 
 ## Installation
 
-### Option 1: Manual install
+Manual install only.
 
 1. Copy this `sepay` folder into:
    - `components/gateways/nonmerchant/sepay/`
@@ -42,27 +45,21 @@ sepay/
 3. Install `SePay`.
 4. Configure the gateway settings.
 
-### Option 2: Composer package
-
-If you publish this package to your Composer registry:
-
-```bash
-composer require blesta/sepay
-```
+This project is not maintained as a Composer registry package.
 
 ## Gateway Setup In Blesta
 
 After installation, configure these fields:
 
-- `Chế độ`: `Sandbox` or `Live`
+- `Mode`: `Sandbox` or `Live`
 - `Sandbox Merchant`
 - `Sandbox Checkout Secret`
 - `Sandbox IPN Secret`
 - `Live Merchant`
 - `Live Checkout Secret`
 - `Live IPN Secret`
-- `Phương thức thanh toán` (optional)
-- `Tiền tố đơn hàng` (optional, default: `BLS`)
+- `Payment Method` (optional)
+- `Order Prefix` (optional, default: `BLS`)
 
 ## Required Setup In SePay
 
@@ -75,11 +72,11 @@ In SePay, configure:
 
 For transaction synchronization by order prefix:
 
-1. Go to [Tài khoản ngân hàng](https://my.sepay.vn/bankaccount).
-2. Open `Cấu hình chung`.
-3. Turn on `Đồng bộ giao dịch`.
-4. Turn on `Đồng bộ giao dịch tiền vào`.
-5. In `Đồng bộ giao dịch theo từ khoá`, make sure there is a record matching `Tiền tố đơn hàng`.
+1. Go to [Bank Account](https://my.sepay.vn/bankaccount).
+2. Open `General Settings`.
+3. Turn on transaction synchronization.
+4. Turn on incoming transaction synchronization.
+5. In keyword-based synchronization, make sure there is a record matching `Order Prefix`.
 
 ## Order ID Format
 
@@ -95,15 +92,16 @@ Example:
 BLS1_25_1024_17123456789012
 ```
 
-Each payment attempt creates a unique SePay order reference, while still mapping back to the same Blesta invoice.
+Each payment attempt creates a unique SePay order reference while still mapping back to the same Blesta invoice.
 
 ## Local Development
 
-Useful checks before publishing changes:
+Useful checks before release:
 
 ```bash
 php -l sepay.php
 php -l language/en_us/sepay.php
+php -l language/vi_vn/sepay.php
 ```
 
 Package this gateway for deployment:
@@ -112,7 +110,7 @@ Package this gateway for deployment:
 zip -r blesta-sepay-gateway.zip .
 ```
 
-## Publishing This Folder As Its Own Repository
+## Publishing
 
 Initialize Git:
 
@@ -122,7 +120,7 @@ git add .
 git commit -m "feat: initial sepay gateway release"
 ```
 
-Create a remote repository, then connect and push:
+Push to your remote:
 
 ```bash
 git remote add origin <your-repo-url>
@@ -136,13 +134,8 @@ git push -u origin main
 - Verify IPN callback is received
 - Verify approved payment is applied to the correct invoice
 - Verify order prefix matches SePay synchronization keyword rules
+- Verify both `en_us` and `vi_vn` language packs render correctly
 
 ## Support
 
 This gateway is intended for Vietnam market usage with `VND` payments through SePay.
-
-## License
-
-Current package metadata is marked as `proprietary` in `composer.json`.
-
-If you want to publish this as a real open-source project, add a `LICENSE` file and update `composer.json` before release.

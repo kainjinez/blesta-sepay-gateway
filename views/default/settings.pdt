@@ -81,7 +81,9 @@
         <?php
         echo sprintf(
             $this->_('Sepay.meta.order_prefix.sync_note', true),
-            '<a href="https://my.sepay.vn/bankaccount" target="_blank" rel="noopener noreferrer">Tài khoản ngân hàng</a>'
+            '<a href="https://my.sepay.vn/bankaccount" target="_blank" rel="noopener noreferrer">'
+                . $this->_('Sepay.meta.bank_account_link_text', true)
+                . '</a>'
         );
         ?>
     </li>

@@ -1,7 +1,7 @@
 {
     "name": "blesta/sepay",
     "description": "SePay hosted checkout gateway for Blesta (VND, single invoice, IPN confirmation).",
-    "license": "proprietary",
+    "license": "MIT",
     "type": "blesta-gateway-nonmerchant",
     "require": {
         "blesta/composer-installer": "~1.0"
